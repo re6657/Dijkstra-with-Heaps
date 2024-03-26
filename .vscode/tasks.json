@@ -8,6 +8,8 @@
             "args": [
                 "-g",
                 "${file}",
+                "-I",
+                "${workspaceFolder}\\header",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-fexec-charset=GBK"
@@ -27,6 +29,8 @@
             "args": [
                 "-g",
                 "${fileDirname}\\*.cpp",
+                "-I",
+                "${workspaceFolder}\\header",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-fexec-charset=GBK"
