@@ -1,8 +1,9 @@
 #include "default.h"
-#include "Fib.h"
+#include "Fib_Heap.h"
+#include "read_gr.h"
 
 using namespace std;
 
 int main(){
-    cout << MAX << endl;
+    gr2txt();
 }
