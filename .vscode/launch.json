@@ -1,0 +1,90 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "g++.exe debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe", /*收纳exe可执行文件*/
+            "args": ["/C","${fileDirname}/${fileBasenameNoExtension}.exe","&","pause"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe", /*bin目录下的gdb.exe，两个反斜杠\\*/
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "task g++"
+        },
+        {
+            "name": "g++.exe run active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "C:\\Windows\\System32\\cmd.exe", /*收纳exe可执行文件*/
+            "args": ["/C","${fileDirname}/${fileBasenameNoExtension}.exe","&","pause"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe", /*bin目录下的gdb.exe，两个反斜杠\\*/
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "task g++"
+        },
+        {
+            "name": "g++.exe debug active file multiple",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe", /*收纳exe可执行文件*/
+            "args": ["/C","${fileDirname}/${fileBasenameNoExtension}.exe","&","pause"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe", /*bin目录下的gdb.exe，两个反斜杠\\*/
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "task g++ multiple"
+        },
+        {
+            "name": "g++.exe run active file multiple",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "C:\\Windows\\System32\\cmd.exe", /*收纳exe可执行文件*/
+            "args": ["/C","${fileDirname}/${fileBasenameNoExtension}.exe","&","pause"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe", /*bin目录下的gdb.exe，两个反斜杠\\*/
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "task g++ multiple"
+        }
+    ]
+}
