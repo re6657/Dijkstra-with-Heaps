@@ -5,5 +5,5 @@
 using namespace std;
 
 int main(){
-    gr2txt();
+    
 }
