@@ -12,13 +12,5 @@ public:
     ~Binomial_Queue();
 };
 
-Binomial_Queue::Binomial_Queue(/* args */)
-{
-}
-
-Binomial_Queue::~Binomial_Queue()
-{
-}
-
 
 #endif

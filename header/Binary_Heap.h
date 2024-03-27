@@ -12,13 +12,6 @@ public:
     ~Binary_Heap();
 };
 
-Binary_Heap::Binary_Heap(/* args */)
-{
-}
-
-Binary_Heap::~Binary_Heap()
-{
-}
 
 
 #endif

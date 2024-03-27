@@ -12,13 +12,5 @@ public:
     ~Fib_Heap();
 };
 
-Fib_Heap::Fib_Heap()
-{
-}
-
-Fib_Heap::~Fib_Heap()
-{
-}
-
 
 #endif
