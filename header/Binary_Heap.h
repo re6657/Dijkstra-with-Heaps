@@ -6,7 +6,7 @@
 class Binary_Heap
 {
 private:
-    /* data */
+    
 public:
     Binary_Heap(/* args */);
     ~Binary_Heap();
