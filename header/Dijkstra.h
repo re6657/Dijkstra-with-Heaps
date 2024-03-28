@@ -9,7 +9,7 @@ class Edge{
 public:
     int dest;
     int weight;
-    Edge(int& dest, int& weight):dest(dest), weight(weight){};
+    Edge(const int& dest, const int& weight):dest(dest), weight(weight){};
     ~Edge(){};
 };
 
@@ -21,14 +21,14 @@ private:
 public:
     Graph():V(0), E(0), adjList({}){};
     ~Graph(){};
-    bool addVertex(int& name);
-    bool addEdge(int& name, Edge& newedge);
-    bool addEdge(int& name, int& dest, int& weight);
+    bool addVertex(const int& name);
+    bool addEdge(const int& name, Edge& newedge);
+    bool addEdge(const int& name, const int& dest, const int& weight);
     inline int getV() const;
     inline int getE() const;
-    int getWeight(int& src, int& dest);
-    bool alterWeight(int& src, int& dest, int& weight);
-    vector<int>& getNeighbors(int& src);
+    int getWeight(const int& src, const int& dest);
+    bool alterWeight(const int& src, const int& dest, const int& weight);
+    vector<int>& getNeighbors(const int& src);
     Graph& buildGraphFromtxt(const string& filePath);
 };
 

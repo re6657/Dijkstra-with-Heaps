@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool Graph::addVertex(int& name)
+bool Graph::addVertex(const int& name)
 {
     if(adjList.find(name) != adjList.end())
     {
@@ -15,7 +15,7 @@ bool Graph::addVertex(int& name)
     return true;
 }
 
-bool Graph::addEdge(int& name, Edge& newedge)
+bool Graph::addEdge(const int& name, Edge& newedge)
 {
     if(newedge.dest == 0 || newedge.weight == 0)
     {
@@ -30,7 +30,7 @@ bool Graph::addEdge(int& name, Edge& newedge)
     return true;
 }
 
-bool Graph::addEdge(int& name, int& dest, int& weight)
+bool Graph::addEdge(const int& name, const int& dest, const int& weight)
 {
     if(dest == 0 || weight == 0)
     {
@@ -55,7 +55,7 @@ inline int Graph::getE() const
     return E;
 }
 
-int Graph::getWeight(int& src, int& dest)
+int Graph::getWeight(const int& src, const int& dest)
 {
     if(adjList.find(src) == adjList.end())
     {
@@ -67,9 +67,11 @@ int Graph::getWeight(int& src, int& dest)
         if (edge.dest == dest)
             return edge.weight;
     }
+    throw "Edge not found";
+    return 0;
 }
 
-bool Graph::alterWeight(int& src, int& dest, int& weight)
+bool Graph::alterWeight(const int& src, const int& dest, const int& weight)
 {
     if(adjList.find(src) == adjList.end())
     {
@@ -84,22 +86,24 @@ bool Graph::alterWeight(int& src, int& dest, int& weight)
             return true;
         }
     }
+    throw "Edge not found";
+    return 0;
 }
 
-vector<int>& Graph::getNeighbors(int& src)
+vector<int>& Graph::getNeighbors(const int& src)
 {
-    vector<int> neighbors;
+    vector<int> *neighbors = new vector<int>;
     auto it = adjList.find(src);
     if(it != adjList.end())
         for(Edge& edge : it->second)
-            neighbors.push_back(edge.dest);
+            (*neighbors).push_back(edge.dest);
     else
     {
         throw "Source not found";
         static vector<int> emptyList;
         return emptyList;
     }
-    return neighbors;
+    return *neighbors;
 }
 
 Graph& Graph::buildGraphFromtxt(const string& filePath)
