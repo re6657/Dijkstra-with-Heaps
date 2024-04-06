@@ -2,3 +2,4 @@
 *.gr
 *.o
 docs/
+build/
