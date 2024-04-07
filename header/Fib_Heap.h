@@ -1,10 +1,3 @@
-/**
- * C++: 斐波那契堆
- *
- * @author skywang
- * @date 2014/04/06
- */
-
 #ifndef _FIBONACCI_TREE_HPP_
 #define _FIBONACCI_TREE_HPP_
 
@@ -58,8 +51,6 @@ class FibHeap{
         void remove(int key);
         // 斐波那契堆中是否包含节点vertex
         bool contains(int vertex);
-        // 打印斐波那契堆
-        void print();
         // 销毁
         void destroy();
 
@@ -100,8 +91,6 @@ class FibHeap{
         void remove(FibNode *node);
         // 销毁斐波那契堆
         void destroyNode(FibNode *node);
-        // 打印斐波那契堆
-        void print(FibNode *node, FibNode *prev, int direction);
 };
 
 #endif

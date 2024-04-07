@@ -2,8 +2,8 @@
 #define __DIJKSTRA
 
 #include "default.h"
-
 #include "Fib_Heap.h"
+#include "Binomial_Queue.h"
 
 using namespace std;
 
@@ -34,5 +34,6 @@ public:
 };
 
 const int dijkstra(Graph& graph, const int& src, const int& dest, FibHeap& queue);
+const int dijkstra(Graph& graph, const int& src, const int& dest, Binomial_Queue& queue);
 
 #endif

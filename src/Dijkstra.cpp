@@ -1,5 +1,6 @@
 #include "default.h"
 #include "Dijkstra.h"
+#include "Binomial_Queue.h"
 
 using namespace std;
 
@@ -139,6 +140,39 @@ const int dijkstra(Graph& graph, const int& src, const int& dest, FibHeap& queue
             {
                 dist[v] = dist[u] + weight;
                 queue.update(v, dist[v]);
+            }
+        }
+    }
+    if(dist[dest] == MAX)
+    {
+        throw "Path Not Found";
+    }
+    return dist[dest];
+}
+
+const int dijkstra(Graph& graph, const int& src, const int& dest, Binomial_Queue& queue)
+{
+    vector<int> dist(graph.getV(), MAX);//2147483647
+    vector<bool> visited(graph.getV(), false);
+    dist[src] = 0;
+    queue.insert(0, src);
+    while(!queue.isEmpty())
+    {
+        int u = 0;
+        if(!queue.minimum(&u))
+            throw "unable to get minimum";
+        queue.removeMin();
+        visited[u] = true;
+        if(u == dest)
+            break;
+        for(auto it : graph.adjList[u])
+        {
+            int v = it.dest;
+            int weight = it.weight;
+            if(!visited[v] && dist[u] + weight < dist[v])
+            {
+                dist[v] = dist[u] + weight;
+                queue.insert(dist[v], v);
             }
         }
     }

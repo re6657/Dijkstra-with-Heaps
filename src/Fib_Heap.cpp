@@ -19,6 +19,7 @@ FibHeap::FibHeap()
  */
 FibHeap::~FibHeap()
 {
+    destroy();
 }
 
 /*
@@ -443,7 +444,7 @@ void FibHeap::update(FibNode *node, int key)
     else if (key > node->key)
         increase(node, key);
     else
-        cout << "No need to update!!!" << endl;
+        cout << "No need to update" << endl;
 }
 
 void FibHeap::update(int vertex, int newkey)
@@ -555,55 +556,4 @@ void FibHeap::destroy()
     free(cons);
 }
 
-/*
- * 打印"斐波那契堆"
- *
- * 参数说明：
- *     node       -- 当前节点
- *     prev       -- 当前节点的前一个节点(父节点or兄弟节点)
- *     direction  --  1，表示当前节点是一个左孩子;
- *                    2，表示当前节点是一个兄弟节点。
- */
-void FibHeap::print(FibNode *node, FibNode *prev, int direction)
-{
-    FibNode *start = node;
 
-    if (node == NULL)
-        return;
-    do
-    {
-        if (direction == 1)
-            cout << setw(8) << node->key << "(" << node->degree << ") is " << setw(2) << prev->key << "'s child" << endl;
-        else
-            cout << setw(8) << node->key << "(" << node->degree << ") is " << setw(2) << prev->key << "'s next" << endl;
-
-        if (node->child != NULL)
-            print(node->child, node, 1);
-
-        // 兄弟节点
-        prev = node;
-        node = node->right;
-        direction = 2;
-    } while (node != start);
-}
-
-void FibHeap::print()
-{
-    int i = 0;
-    FibNode *p;
-
-    if (min == NULL)
-        return;
-
-    cout << "== 斐波那契堆的详细信息: ==" << endl;
-    p = min;
-    do
-    {
-        i++;
-        cout << setw(2) << i << ". " << setw(4) << p->key << "(" << p->degree << ") is root" << endl;
-
-        print(p->child, p, 1);
-        p = p->right;
-    } while (p != min);
-    cout << endl;
-}
