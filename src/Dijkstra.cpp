@@ -182,3 +182,38 @@ const int dijkstra(Graph& graph, const int& src, const int& dest, Binomial_Queue
     }
     return dist[dest];
 }
+
+const int dijkstra(Graph& graph, const int& src, const int& dest, Binary& queue)
+//constint dijkstra(Graph& graph, const int& src, const int& dest, FibHeap& queue)
+//const int dijkstra(Graph& graph, const int& src, const int& dest, Binomial_Queue& queue)
+{
+	vector<int> dist(graph.getV(), MAX);//2147483647
+	vector<bool> visited(graph.getV(), false);
+	dist[src] = 0;
+	queue.insert(0, src);
+	while(!queue.isEmpty())
+	{
+		int u = 0;
+	//	if(!queue.minimum(&u))
+		//	throw "unable to get minimum";
+	u=queue.removeMin().second;
+		visited[u] = true;
+		if(u == dest)
+			break;
+		for(auto it : graph.adjList[u])
+		{
+			int v = it.dest;
+			int weight = it.weight;
+			if(!visited[v] && dist[u] + weight < dist[v])
+			{
+				dist[v] = dist[u] + weight;
+				queue.insert(dist[v], v);
+			}
+		}
+	}
+	if(dist[dest] == MAX)
+	{
+		throw "Path Not Found";
+	}
+	return dist[dest];
+}
